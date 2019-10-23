@@ -17,7 +17,7 @@ const Articles = ({ data }) => {
           key={article.id}
           title={article.title}
           path={article.path.alias}
-          image={article.relationships.field_image.localFile.publicURL}
+          image={article.relationships.field_image.localFile.childImageSharp.fluid}
           alt={article.field_image.alt}
           summary={article.body.summary ? article.body.summary : article.body.processed.substring(0, 300)}
         />
@@ -53,7 +53,11 @@ export const data = graphql`
         relationships {
           field_image {
             localFile {
-              publicURL
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }
