@@ -10,7 +10,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title={ node.title } />
       <h1>{ node.title }</h1>
       <div dangerouslySetInnerHTML = {{ __html: node.body.value }}/>
     </Layout>

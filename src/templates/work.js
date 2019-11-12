@@ -5,12 +5,17 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 const Work = ({ data }) => {
-  const post = data.nodeWork;
+  const node = data.nodeWork;
+  // return (<div><pre>{JSON.stringify(node, null, 2) }</pre></div>);
+  // const isFeatured = node.field_featured;
+  // if (isFeatured) {
+  //   return 'Featured';
+  // }
 
   return (
     <Layout>
-      <h1>{ post.title }</h1>
-      <div dangerouslySetInnerHTML = {{ __html: post.body.processed }}
+      <h1>{ node.title }</h1>
+      <div dangerouslySetInnerHTML = {{ __html: node.body.processed }}
       />
     </Layout>
   );
@@ -28,6 +33,7 @@ export const query = graphql`
       body {
         processed
       }
+      field_featured
     }
   }
 `;
