@@ -1,7 +1,7 @@
 import React from "react";
-import { ParagraphBody } from "../components/ParagraphBody/ParagraphBody";
-import { ParagraphIntro } from "../components/ParagraphIntro";
-import { ParagraphHero } from "../components/ParagraphHero";
+import { ParagraphBody } from "../components/Paragraphs/Body/ParagraphBody";
+import { ParagraphIntro } from "../components/Paragraphs/Intro/ParagraphIntro";
+import { ParagraphHero } from "../components/Paragraphs/Hero/ParagraphHero";
 
 const components = {
   paragraph__body: ParagraphBody,
