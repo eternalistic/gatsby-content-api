@@ -30,7 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://content-api.lndo.site/`,
+        baseUrl: `https://dev-content-api.pantheonsite.io/`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
