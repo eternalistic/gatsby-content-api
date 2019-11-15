@@ -4,59 +4,47 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
-const path = require('path');
+const path = require("path");
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const tpl = path.resolve(`src/templates/paragraph.js`);
 
-  // Articles.
-  const articles = await graphql(`
+    //   Adjust these field names as needed
+  const result = await graphql(`
     {
-      allNodeArticle {
-        nodes {
-          id
-          title
-          path {
-            alias
+      paragraphPages: allNodeLanding {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            drupal_internal__nid
           }
         }
       }
     }
   `);
-
-  articles.data.allNodeArticle.nodes.map(articleData =>
+  result.data.paragraphPages.edges.forEach(({ node }) => {
     createPage({
-      path: articleData.path.alias,
-      component: path.resolve('src/templates/article.js'),
+      path: node.fields.slug,
+      component: tpl,
       context: {
-        ArticleId: articleData.id,
-      },
-    })
-  );
-
-  // Work.
-  const works = await graphql(`
-    {
-      allNodeWork {
-        nodes {
-          id
-          title
-          path {
-            alias
-          }
-        }
+        slug: node.fields.slug
       }
-    }
-  `);
+    });
+  });
+};
 
-  works.data.allNodeWork.nodes.map(workData =>
-    createPage({
-      path: workData.path.alias,
-      component: path.resolve('src/templates/work.js'),
-      context: {
-        WorkId: workData.id,
-      },
-    })
-  );
-}
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  // Use the type of your own paragraph page
+  if (node.internal.type === `node__landing`) {
+    const slug = `/pages/${node.drupal_internal__nid}/`;
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug
+    });
+  }
+};

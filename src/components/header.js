@@ -56,17 +56,17 @@ const Header = ({ siteTitle }) => (
 
         <nav id="social" role="navigation">
           <ul class="menu">
-            <li class="first"><a href="http://drupal.org/user/72964" target="_blank" class="drupal" title="Drupal">Drupal</a></li>
-            <li><a href="http://github.com/eternalistic" target="_blank" class="github" title="GitHub">GitHub</a></li>
-            <li><a href="http://twitter.com/eternalistic" target="_blank" class="twitter" title="Twitter">Twitter</a></li>
-            <li class="last"><a href="http://www.linkedin.com/pub/jeremy-caldwell/5/76b/ab1" target="_blank" class="linkedin" title="LinkedIn">LinkedIn</a></li>
+            <li class="first"><a href="http://drupal.org/user/72964" target="_blank" rel="noopener noreferrer" class="drupal" title="Drupal">Drupal</a></li>
+            <li><a href="http://github.com/eternalistic" target="_blank" rel="noopener noreferrer" class="github" title="GitHub">GitHub</a></li>
+            <li><a href="http://twitter.com/eternalistic" target="_blank" rel="noopener noreferrer" class="twitter" title="Twitter">Twitter</a></li>
+            <li class="last"><a href="http://www.linkedin.com/pub/jeremy-caldwell/5/76b/ab1" target="_blank" rel="noopener noreferrer" class="linkedin" title="LinkedIn">LinkedIn</a></li>
           </ul>
         </nav>
 
         <hr class="narrow" />
 
-        <p class="powered">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a> <br/>
-          Hosted on <a href="http://github.com" target="_blank">GitHub</a></p>
+        <p class="powered">Powered by <a href="http://jekyllrb.com" target="_blank" rel="noopener noreferrer">Jekyll</a> <br/>
+          Hosted on <a href="http://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></p>
 
       </div>
   </header>
