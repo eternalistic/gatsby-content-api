@@ -10,12 +10,16 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const tpl = path.resolve(`src/templates/paragraph.js`);
 
-    //   Adjust these field names as needed
   const result = await graphql(`
     {
-      paragraphPages: allNodeLanding {
+      landingPages: allNodeLanding {
         edges {
           node {
+            id
+            title
+            path {
+              alias
+            }
             fields {
               slug
             }
@@ -25,7 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  result.data.paragraphPages.edges.forEach(({ node }) => {
+  result.data.landingPages.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: tpl,
@@ -38,9 +42,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  // Use the type of your own paragraph page
+
+  // "Landing" content type.
   if (node.internal.type === `node__landing`) {
-    const slug = `/pages/${node.drupal_internal__nid}/`;
+    const slug = `${node.path.alias}/`;
     createNodeField({
       node,
       name: `slug`,
