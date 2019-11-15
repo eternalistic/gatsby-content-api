@@ -14,3 +14,5 @@ export const fragment = graphql`
     }
   }
 `;
+
+export default ParagraphBody

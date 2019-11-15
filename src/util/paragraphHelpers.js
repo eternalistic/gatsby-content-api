@@ -1,5 +1,5 @@
 import React from "react";
-import { ParagraphBody } from "../components/ParagraphBody";
+import { ParagraphBody } from "../components/ParagraphBody/ParagraphBody";
 import { ParagraphIntro } from "../components/ParagraphIntro";
 import { ParagraphHero } from "../components/ParagraphHero";
 
