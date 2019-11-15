@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 
+import SEO from "../components/seo";
 import { getParagraph } from "../util/paragraphHelpers";
 
 export const PageTemplate = ({ data }) => {
@@ -9,6 +10,7 @@ export const PageTemplate = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={data.page.title} />
       <h1>{data.page.title}</h1>
       {paragraphs}
     </Layout>
@@ -26,6 +28,7 @@ export const pageQuery = graphql`
           type: __typename
           ...ParagraphBody
           ...ParagraphIntro
+          ...ParagraphHero
         }
       }
       title

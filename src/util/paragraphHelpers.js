@@ -1,10 +1,12 @@
 import React from "react";
 import { ParagraphBody } from "../components/ParagraphBody";
 import { ParagraphIntro } from "../components/ParagraphIntro";
+import { ParagraphHero } from "../components/ParagraphHero";
 
 const components = {
   paragraph__body: ParagraphBody,
   paragraph__intro: ParagraphIntro,
+  paragraph__hero: ParagraphHero,
 };
 
 export const getParagraph = node => {
