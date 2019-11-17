@@ -1,8 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import "./body.css"
+
 export const ParagraphBody = ({ node }) => (
-  <div dangerouslySetInnerHTML={{ __html: node.text.processed }} />
+  <div className="body" dangerouslySetInnerHTML={{ __html: node.text.processed }} />
 );
 
 export const fragment = graphql`

@@ -2,14 +2,14 @@ import React from "react";
 import Img from "gatsby-image";
 import { graphql } from "gatsby";
 
-import { Link } from "gatsby";
+import "./hero.css"
 
 export const ParagraphHero = ({ node }) => (
-  <div class="hero">
+  <div className="wrapper">
     {node.relationships.image.alt}
     <Img fixed={node.relationships.image.localFile.childImageSharp.fixed} alt="Something goes here" />
-    <div class="hero__body" dangerouslySetInnerHTML={{ __html: node.text.processed }} />
-    <Link to={node.cta.uri} class="hero__button">{node.cta.title}</Link>
+    <div className="content" dangerouslySetInnerHTML={{ __html: node.text.processed }} />
+    <a href={node.cta.uri} className="button">{node.cta.title}</a>
   </div>
 );
 
